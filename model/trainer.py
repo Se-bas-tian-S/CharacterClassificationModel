@@ -1,6 +1,6 @@
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import ModelCheckpoint
-from CharacterClassification.callbacks.metrics import PrintMetricsCallback
+from callbacks.metrics import PrintMetricsCallback
 
 class ModelTrainer:
     def __init__(self, model):
