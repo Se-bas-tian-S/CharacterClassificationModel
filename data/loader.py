@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 class Chars74KLoader:
-    def __init__(self, data_dir, img_size=(128, 128), batch_size=32, validation_split=0.1):
+    def __init__(self, data_dir, img_size=(128, 128), batch_size=64, validation_split=0.1):
         self.data_dir = data_dir
         self.img_size = img_size
         self.batch_size = batch_size

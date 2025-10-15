@@ -13,7 +13,7 @@ class ModelTrainer:
             metrics=['accuracy']
         )
         callbacks = [
-            ModelCheckpoint(filepath='model_epoch_{epoch:02d}.keras', save_freq='epoch'),
+            ModelCheckpoint(filepath='checkpoint_dir/model_epoch_{epoch:02d}.keras', save_freq='epoch'),
             PrintMetricsCallback()
         ]
         history = self.model.fit(
