@@ -1,12 +1,12 @@
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import ModelCheckpoint
-from callbacks.metrics import PrintMetricsCallback
+from CharacterClassification.callbacks.metrics import PrintMetricsCallback
 
 class ModelTrainer:
     def __init__(self, model):
         self.model = model
 
-    def train(self, train_dataset, val_dataset, epochs=20):
+    def train(self, train_dataset, val_dataset, epochs=2):
         self.model.compile(
             optimizer=Adam(learning_rate=0.001),
             loss='categorical_crossentropy',
