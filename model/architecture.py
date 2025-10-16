@@ -9,9 +9,9 @@ def build(input_shape, num_classes):
     model = Sequential([
         Input(input_shape),
 
-        #RandomRotation(0.1),
-        #RandomZoom(0.1),
-        #RandomTranslation(height_factor=0.1, width_factor=0.1),
+        RandomRotation(0.1),
+        RandomZoom(0.1),
+        RandomTranslation(height_factor=0.1, width_factor=0.1),
 
         Rescaling(1.0/255),
 

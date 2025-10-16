@@ -33,6 +33,4 @@ class Chars74KLoader:
             seed=123
         )
         class_names = train_dataset.class_names
-        test_dataset = val_dataset.unbatch().take(10)
-        test_dataset = list(test_dataset)
-        return train_dataset, val_dataset, class_names, test_dataset
+        return train_dataset, val_dataset, class_names,
