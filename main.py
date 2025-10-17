@@ -4,6 +4,7 @@ from model.trainer import ModelTrainer
 import tensorflow as tf
 
 if __name__ == "__main__":
+    # Included this for some training at home with a gpu
     gpus = tf.config.experimental.list_physical_devices('GPU')
     if gpus:
         try:
@@ -20,13 +21,12 @@ if __name__ == "__main__":
     print(f"TensorFlow Version: {tf.__version__}")
     print(f"Is Built with CUDA: {tf.test.is_built_with_cuda()}")
     print(f"Num GPUs Available: {len(tf.config.list_physical_devices('GPU'))}")
-    data_dir = "trainingData/Fnt"
-    loader = Chars74KLoader(data_dir)
-    train_dataset, val_dataset, class_names = loader.load_data()
 
+    loader = Chars74KLoader("trainingData/Fnt")
+    train_dataset, val_dataset, class_names = loader.load_data()
     model = build(input_shape=(128, 128, 1), num_classes=len(class_names))
     model.summary()
     trainer = ModelTrainer(model)
-    history = trainer.train(train_dataset, val_dataset)
+    trainer.train(train_dataset, val_dataset)
 
-    model.save("pc_hand_char_model.keras")
+    model.save("pc_hand_char_model_32_32_128.keras")
